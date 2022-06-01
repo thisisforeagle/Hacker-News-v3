@@ -1,7 +1,47 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AskComponent } from './pages/ask/ask.component';
+import { CommentsComponent } from './pages/comments/comments.component';
+import { JobsComponent } from './pages/jobs/jobs.component';
+import { NewPostsComponent } from './pages/new-posts/new-posts.component';
+import { PastPostsComponent } from './pages/past-posts/past-posts.component';
+import { ShowComponent } from './pages/show/show.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'new-posts',
+  },
+  {
+    path: 'ask',
+    component: AskComponent
+  },
+  {
+    path: 'comments',
+    component: CommentsComponent
+  },
+  {
+    path: 'jobs',
+    component: JobsComponent
+  },
+  {
+    path: 'new-posts',
+    component: NewPostsComponent
+  },
+  {
+    path: 'past-posts',
+    component: PastPostsComponent
+  },
+  {
+    path: 'show',
+    component: ShowComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'login',
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
