@@ -1,0 +1,58 @@
+.post {
+  background: white;
+  border-bottom: 1px solid #ececec;
+  .post-image {
+  }
+  .content-container {
+    .title {
+      margin-bottom: 0px;
+    }
+    .url-container {
+      margin-bottom: 23px;
+    }
+    .user {
+      width: 130px;
+      overflow: hidden;
+    }
+    .likes {
+      width: 100px !important;
+    }
+    .date {
+      width: 150px !important;
+    }
+    .url {
+      width: 100% !important;
+      color: #226efd;
+    }
+    .metadata {
+      display: inline-block;
+      margin-right: 40px;
+      color: #adb5bd;
+      font-size: 0.9em;
+    }
+    .truncate {
+      width: 100px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .comment-count {
+    position: relative;
+    .ng-fa-icon {
+      position: absolute;
+      font-size: 45px;
+      z-index: 1;
+      top: 9px;
+      left: 85px;
+      color: #adb5bd;
+    }
+    .count {
+      font-size: 0.8em;
+      color: white;
+      margin-top: 29px;
+      z-index: 999;
+      position: relative;
+    }
+  }
+}

@@ -5,7 +5,8 @@
 
   .page-content {
     margin-left: 280px;
-    min-height: 100vh;
+    height: calc(100vh - 56px);
     width: 100%;
+    overflow: auto;
   }
 }

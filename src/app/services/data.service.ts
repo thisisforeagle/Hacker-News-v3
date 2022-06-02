@@ -72,4 +72,11 @@ export class DataService {
     }
     this.postsLoadingSubject.next(false);
   }
+  async getHTML() {
+    const res = this._http
+      .get('https://www.fields.ie/', { responseType: "text" })
+    const html = await firstValueFrom(res);
+    console.log('html: ', html);
+
+  }
 }

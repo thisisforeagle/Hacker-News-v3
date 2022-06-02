@@ -14,6 +14,9 @@ import { PostComponent } from './components/post/post.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UrlRootPipe } from './pipes/url-root.pipe';
+import { TimeStampPipe } from './pipes/time-stamp.pipe';
+import { TimeagoModule } from 'ngx-timeago';
 
 @NgModule({
   declarations: [
@@ -25,13 +28,16 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     TopPostsComponent,
     PostComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    UrlRootPipe,
+    TimeStampPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TimeagoModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

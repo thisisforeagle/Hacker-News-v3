@@ -22,6 +22,8 @@ export class NewPostsComponent implements OnInit {
       .subscribe(
         (posts: Post[]) => {
           this.posts = posts;
+          console.log(posts);
+
         }
       );
     this.postsLoadingSubject = this._dataService.postsLoadingSubject

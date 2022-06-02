@@ -1,1 +1,46 @@
-<pre>{{post | json}}</pre>
+<div class="post">
+  <div class="row">
+    <div class="col-2 ppost-image">
+      <img src="https://picsum.photos/200/100"
+           alt="">
+    </div>
+    <div class="col-8 content-container">
+      <p class="title">
+        {{ post?.title }}
+      </p>
+      <div class="row url-container">
+        <div class="url"
+             [title]="post?.url">
+          <fa-icon [icon]="faAt"></fa-icon>
+          {{ post?.url || '' | urlRoot }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="likes metadata truncate"
+               [title]="post?.score">
+            <fa-icon [icon]="faThumbsUp"></fa-icon>
+            {{ post?.score }} likes
+          </div>
+          <div class="user metadata truncate"
+               [title]="post?.by">
+            <fa-icon [icon]="faUser"></fa-icon>
+            {{ post?.by }}
+          </div>
+          <div class="date metadata truncate"
+               [title]="post?.time | timeStamp">
+            <fa-icon [icon]="faClock"></fa-icon>
+            <div class="mx-1"
+                 style="display: inline-block;"
+                 timeago
+                 [date]="post.time * 1000"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-2 comment-count text-center">
+      <fa-icon [icon]="faMessage"></fa-icon>
+      <p class="count">{{ post?.kids?.length || 100 }}</p>
+    </div>
+  </div>
+</div>
