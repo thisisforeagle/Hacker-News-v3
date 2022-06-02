@@ -1,3 +1,4 @@
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShowComponent } from './show.component';
@@ -5,12 +6,15 @@ import { ShowComponent } from './show.component';
 describe('ShowComponent', () => {
   let component: ShowComponent;
   let fixture: ComponentFixture<ShowComponent>;
+  let httpController: HttpTestingController;
+
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShowComponent ]
-    })
-    .compileComponents();
+      declarations: [ShowComponent],
+      imports: [HttpClientTestingModule],
+    }).compileComponents();
+    httpController = TestBed.inject(HttpTestingController);
   });
 
   beforeEach(() => {

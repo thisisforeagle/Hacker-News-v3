@@ -4,11 +4,11 @@ import { Post } from 'src/app/interfaces/post';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'hn-show',
-  templateUrl: './show.component.html',
-  styleUrls: ['./show.component.scss']
+  selector: 'hn-top-posts',
+  templateUrl: './top-posts.component.html',
+  styleUrls: ['./top-posts.component.scss']
 })
-export class ShowComponent implements OnInit {
+export class TopPostsComponent implements OnInit {
   posts: Post[] = [];
   postsSubscription: Subscription;
   postsLoadingSubject: Subscription;
@@ -21,7 +21,6 @@ export class ShowComponent implements OnInit {
     this.postsSubscription = this._dataService.postsSubject
       .subscribe(
         (posts: Post[]) => {
-          console.log('Updated list: ', posts);
           this.posts = posts;
         }
       );
@@ -31,7 +30,7 @@ export class ShowComponent implements OnInit {
           this.isLoading = isLoading;
         }
       );
-    this._dataService.getPostByCategoryType('show');
+    this._dataService.getPostByPopularityType('top');
   }
 
 }
