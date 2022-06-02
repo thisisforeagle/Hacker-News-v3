@@ -1,10 +1,10 @@
 <div class="post">
   <div class="row p-0 m-0">
-    <div class="col-2 post-image"
-         style="background-image: url('https://picsum.photos/200/100')">
+    <div class="col-sm-12 col-md-3 post-image"
+         style="background-image: url('https://picsum.photos/200')">
 
     </div>
-    <div class="col-8 content-container">
+    <div class="col-sm-12 col-md-7 p-5 content-container">
       <p class="title">
         {{ post?.title }}
       </p>
@@ -33,12 +33,13 @@
             <div class="mx-1"
                  style="display: inline-block;"
                  timeago
-                 [date]="post.time * 1000"></div>
+                 [date]="post.time * 1000"
+                 *ngIf="post?.time"></div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-2 m-0 p-0 comment-count text-center">
+    <div class="col-sm-12 col-md-2 m-0 p-0 comment-count text-center">
       <p class="count">{{ post?.kids?.length || 0 }}<br>Comments
       </p>
     </div>

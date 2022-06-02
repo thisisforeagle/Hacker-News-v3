@@ -2,12 +2,14 @@
   background: white;
   border-bottom: 1px solid #ececec;
   .post-image {
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
   }
   .content-container {
     .title {
       margin-bottom: 0px;
+      font-size: 1.3em;
     }
     .url-container {
       margin-bottom: 23px;
