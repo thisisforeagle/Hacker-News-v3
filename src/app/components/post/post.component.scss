@@ -2,6 +2,8 @@
   background: white;
   border-bottom: 1px solid #ececec;
   .post-image {
+    background-size: contain;
+    background-repeat: no-repeat;
   }
   .content-container {
     .title {
@@ -38,21 +40,12 @@
     }
   }
   .comment-count {
-    position: relative;
-    .ng-fa-icon {
-      position: absolute;
-      font-size: 45px;
-      z-index: 1;
-      top: 9px;
-      left: 85px;
-      color: #adb5bd;
-    }
     .count {
       font-size: 0.8em;
-      color: white;
-      margin-top: 29px;
-      z-index: 999;
-      position: relative;
+      color: #adb5bd;
+      padding-top: 29px;
+      background: #f8f8f8;
+      height: 100%;
     }
   }
 }

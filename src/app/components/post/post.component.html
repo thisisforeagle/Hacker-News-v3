@@ -1,8 +1,8 @@
 <div class="post">
-  <div class="row">
-    <div class="col-2 ppost-image">
-      <img src="https://picsum.photos/200/100"
-           alt="">
+  <div class="row p-0 m-0">
+    <div class="col-2 post-image"
+         style="background-image: url('https://picsum.photos/200/100')">
+
     </div>
     <div class="col-8 content-container">
       <p class="title">
@@ -38,9 +38,9 @@
         </div>
       </div>
     </div>
-    <div class="col-2 comment-count text-center">
-      <fa-icon [icon]="faMessage"></fa-icon>
-      <p class="count">{{ post?.kids?.length || 100 }}</p>
+    <div class="col-2 m-0 p-0 comment-count text-center">
+      <p class="count">{{ post?.kids?.length || 0 }}<br>Comments
+      </p>
     </div>
   </div>
 </div>
