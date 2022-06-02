@@ -12,7 +12,7 @@ export class NewPostsComponent implements OnInit {
   posts: Post[] = [];
   postsSubscription: Subscription;
   postsLoadingSubject: Subscription;
-  isLoading: boolean;
+  isLoading: boolean = true;
   constructor(
     private _dataService: DataService
   ) { }
@@ -21,7 +21,6 @@ export class NewPostsComponent implements OnInit {
     this.postsSubscription = this._dataService.postsSubject
       .subscribe(
         (posts: Post[]) => {
-          console.log('Updated list: ', posts);
           this.posts = posts;
         }
       );
@@ -34,4 +33,8 @@ export class NewPostsComponent implements OnInit {
     this._dataService.getPosts('new');
   }
 
+  ngOnDestroy() {
+    this.postsSubscription.unsubscribe();
+    this.postsLoadingSubject.unsubscribe();
+  }
 }

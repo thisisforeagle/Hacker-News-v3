@@ -1,4 +1,6 @@
 <div class="new-page"
      [class.pre-loader]="isLoading">
+  <hn-post *ngFor="let post of posts"
+           [post]="post"></hn-post>
   <pre>{{posts | json}}</pre>
 </div>

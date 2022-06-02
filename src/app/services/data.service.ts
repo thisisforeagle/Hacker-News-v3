@@ -31,11 +31,15 @@ export class DataService {
   public async getPosts(type: string): Promise<void> {
     this.postsLoadingSubject.next(true);
 
+    this.fetchedPosts = [];
+    this.postIDs = [];
     const get = this.HNGet(type)
     this.postIDs = await firstValueFrom(get);
     this.loadPosts();
 
-    this.postsLoadingSubject.next(false);
+    setTimeout(() => {
+      this.postsLoadingSubject.next(false);
+    }, 750);
   }
   getPost(id: any): Observable<Object> {
     return this._http

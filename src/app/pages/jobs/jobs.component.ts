@@ -12,7 +12,7 @@ export class JobsComponent implements OnInit {
   jobs: Post[] = [];
   postsSubscription: Subscription;
   postsLoadingSubject: Subscription;
-  isLoading: boolean;
+  isLoading: boolean = true;
   constructor(
     private _dataService: DataService
   ) { }
@@ -21,7 +21,6 @@ export class JobsComponent implements OnInit {
     this.postsSubscription = this._dataService.postsSubject
       .subscribe(
         (jobs: Post[]) => {
-          console.log('Updated list: ', jobs);
           this.jobs = jobs;
         }
       );
@@ -34,4 +33,8 @@ export class JobsComponent implements OnInit {
     this._dataService.getPosts('ask');
   }
 
+  ngOnDestroy() {
+    this.postsSubscription.unsubscribe();
+    this.postsLoadingSubject.unsubscribe();
+  }
 }

@@ -12,7 +12,7 @@ export class TopPostsComponent implements OnInit {
   posts: Post[] = [];
   postsSubscription: Subscription;
   postsLoadingSubject: Subscription;
-  isLoading: boolean;
+  isLoading: boolean = true;
   constructor(
     private _dataService: DataService
   ) { }
@@ -31,6 +31,11 @@ export class TopPostsComponent implements OnInit {
         }
       );
     this._dataService.getPosts('top');
+  }
+
+  ngOnDestroy() {
+    this.postsSubscription.unsubscribe();
+    this.postsLoadingSubject.unsubscribe();
   }
 
 }

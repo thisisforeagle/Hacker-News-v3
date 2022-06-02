@@ -10,7 +10,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class AskComponent implements OnInit {
   posts: Post[] = [];
-  isLoading: boolean = false;
+  isLoading: boolean = true;
   postsSubscription: Subscription;
   postsLoadingSubject: Subscription;
   constructor(
@@ -21,7 +21,6 @@ export class AskComponent implements OnInit {
     this.postsSubscription = this._dataService.postsSubject
       .subscribe(
         (posts: Post[]) => {
-          console.log('Updated list: ', posts);
           this.posts = posts;
         }
       );
@@ -34,4 +33,8 @@ export class AskComponent implements OnInit {
     this._dataService.getPosts('ask');
   }
 
+  ngOnDestroy() {
+    this.postsSubscription.unsubscribe();
+    this.postsLoadingSubject.unsubscribe();
+  }
 }
