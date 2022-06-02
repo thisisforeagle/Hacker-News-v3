@@ -30,7 +30,7 @@ export class TopPostsComponent implements OnInit {
           this.isLoading = isLoading;
         }
       );
-    this._dataService.getPostByPopularityType('top');
+    this._dataService.getPosts('top');
   }
 
 }

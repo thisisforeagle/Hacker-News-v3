@@ -31,7 +31,7 @@ export class NewPostsComponent implements OnInit {
           this.isLoading = isLoading;
         }
       );
-    this._dataService.getPostByPopularityType('new');
+    this._dataService.getPosts('new');
   }
 
 }

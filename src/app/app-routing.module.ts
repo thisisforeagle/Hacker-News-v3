@@ -4,6 +4,7 @@ import { AskComponent } from './pages/ask/ask.component';
 import { JobsComponent } from './pages/jobs/jobs.component';
 import { NewPostsComponent } from './pages/new-posts/new-posts.component';
 import { ShowComponent } from './pages/show/show.component';
+import { TopPostsComponent } from './pages/top-posts/top-posts.component';
 
 const routes: Routes = [
   {
@@ -20,8 +21,12 @@ const routes: Routes = [
     component: JobsComponent
   },
   {
-    path: 'new-posts',
+    path: 'new',
     component: NewPostsComponent
+  },
+  {
+    path: 'top',
+    component: TopPostsComponent
   },
   {
     path: 'show',

@@ -23,24 +23,15 @@ export class DataService {
     private _http: HttpClient
   ) { }
 
-  public HNGet(category: string, type: string) {
+  public HNGet(type: string) {
     return this._http
-      .get(`${ BASE_URL }${ type }${ category }.json`);
+      .get(`${ BASE_URL }${ type }stories.json`);
   }
 
-  public async getPostByPopularityType(type: string): Promise<void> {
+  public async getPosts(type: string): Promise<void> {
     this.postsLoadingSubject.next(true);
 
-    const get = this.HNGet('posts', type)
-    this.postIDs = await firstValueFrom(get);
-    this.loadPosts();
-
-    this.postsLoadingSubject.next(false);
-  }
-  public async getPostByCategoryType(type: string): Promise<void> {
-    this.postsLoadingSubject.next(true);
-
-    const get = this.HNGet('stories', type);
+    const get = this.HNGet(type)
     this.postIDs = await firstValueFrom(get);
     this.loadPosts();
 

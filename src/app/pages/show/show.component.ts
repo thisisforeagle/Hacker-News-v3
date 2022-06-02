@@ -31,7 +31,7 @@ export class ShowComponent implements OnInit {
           this.isLoading = isLoading;
         }
       );
-    this._dataService.getPostByCategoryType('show');
+    this._dataService.getPosts('show');
   }
 
 }

@@ -31,7 +31,7 @@ export class JobsComponent implements OnInit {
           this.isLoading = isLoading;
         }
       );
-    this._dataService.getPostByCategoryType('ask');
+    this._dataService.getPosts('ask');
   }
 
 }

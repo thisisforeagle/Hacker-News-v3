@@ -9,6 +9,9 @@ import { ShowComponent } from './pages/show/show.component';
 import { JobsComponent } from './pages/jobs/jobs.component';
 
 import { HttpClientModule } from '@angular/common/http'
+import { TopPostsComponent } from './pages/top-posts/top-posts.component';
+import { PostComponent } from './components/post/post.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,12 +19,15 @@ import { HttpClientModule } from '@angular/common/http'
     NewPostsComponent,
     AskComponent,
     ShowComponent,
-    JobsComponent
+    JobsComponent,
+    TopPostsComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
