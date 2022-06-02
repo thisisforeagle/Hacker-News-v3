@@ -1,0 +1,82 @@
+<div id="sidebar"
+     class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
+     style="width: 280px;">
+  <a href="/"
+     class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <fa-icon [icon]="faCode"></fa-icon>
+    <span class="mx-4 fs-4">Hacker News 3.0</span>
+  </a>
+  <hr>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a routerLink="/new"
+         [class.active]="isActive('/new')"
+         class="nav-link"
+         aria-current="page">
+        <fa-icon [icon]="faCalendar"></fa-icon>
+        <span class="mx-4">New</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/top"
+         [class.active]="isActive('/top')"
+         class="nav-link"
+         aria-current="page">
+        <fa-icon [icon]="faCalendar"></fa-icon>
+        <span class="mx-4">Top</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/ask"
+         [class.active]="isActive('/ask')"
+         class="nav-link"
+         aria-current="page">
+        <fa-icon [icon]="faCalendar"></fa-icon>
+        <span class="mx-4">Ask</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/show"
+         [class.active]="isActive('/show')"
+         class="nav-link"
+         aria-current="page">
+        <fa-icon [icon]="faCalendar"></fa-icon>
+        <span class="mx-4">Show</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/jobs"
+         [class.active]="isActive('/jobs')"
+         class="nav-link"
+         aria-current="page">
+        <fa-icon [icon]="faCalendar"></fa-icon>
+        <span class="mx-4">Jobs</span>
+      </a>
+    </li>
+  </ul>
+  <hr>
+  <div class="dropdown">
+    <a href="#"
+       class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+       id="dropdownUser1"
+       data-bs-toggle="dropdown"
+       aria-expanded="false">
+      <img src="https://github.com/mdo.png"
+           alt=""
+           width="32"
+           height="32"
+           class="rounded-circle me-2">
+      <strong>Account settings</strong>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
+        aria-labelledby="dropdownUser1">
+      <li><a class="dropdown-item">New project...</a></li>
+      <li><a class="dropdown-item">Settings</a></li>
+      <li><a class="dropdown-item">Profile</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li><a class="dropdown-item">Sign out</a></li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.main-content {
+  display: flex;
+  background: url("./assets/back-image.jpeg") fixed;
+
+  .page-content {
+    margin-left: 280px;
+    min-height: 100vh;
+  }
+}

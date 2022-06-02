@@ -1,2 +1,4 @@
-Loading:{{ isLoading }}
-<pre>{{jobs | json}}</pre>
+<div class="jobs-page"
+     [class.pre-loader]="isLoading">
+  <pre>{{jobs | json}}</pre>
+</div>

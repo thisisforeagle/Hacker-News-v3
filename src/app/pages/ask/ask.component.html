@@ -1,2 +1,4 @@
-Loading:{{ isLoading }}
-<pre>{{posts | json}}</pre>
+<div class="ask-page"
+     [class.pre-loader]="isLoading">
+  <pre>{{posts | json}}</pre>
+</div>

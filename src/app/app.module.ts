@@ -11,7 +11,9 @@ import { JobsComponent } from './pages/jobs/jobs.component';
 import { HttpClientModule } from '@angular/common/http'
 import { TopPostsComponent } from './pages/top-posts/top-posts.component';
 import { PostComponent } from './components/post/post.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './components/footer/footer.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ShowComponent,
     JobsComponent,
     TopPostsComponent,
-    PostComponent
+    PostComponent,
+    FooterComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

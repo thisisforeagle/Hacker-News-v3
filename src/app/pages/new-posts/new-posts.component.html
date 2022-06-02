@@ -1,6 +1,4 @@
-Loading:{{ isLoading }}
-<div class="row">
-  <div class="col-6 shadow rounded"></div>
-  <div class="col-6 shadow rounded"></div>
+<div class="new-page"
+     [class.pre-loader]="isLoading">
+  <pre>{{posts | json}}</pre>
 </div>
-<pre>{{posts | json}}</pre>
