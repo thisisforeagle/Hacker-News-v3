@@ -41,6 +41,7 @@ describe('DataService', () => {
 
   it('"getPost" should get post JSON for an id from api', (done) => {
     const mockPost: IPost = {
+      "image": "http://img.com",
       "by": "pabs3",
       "descendants": 182,
       "id": 31590724,

@@ -43,12 +43,12 @@ export class DataService {
       this.postsLoadingSubject.next(false);
     }, 750);
   }
-  getPost(id: any): Observable<Object> {
+  private getPost(id: any): Observable<Object> {
     return this._http
       .get(`${ BASE_URL }item/${ id }.json`);
   }
 
-  loadPosts() {
+  public loadPosts() {
     console.log('Loading posts from IDs');
 
     const postsList: number[] = [];
@@ -80,18 +80,18 @@ export class DataService {
     this.postsLoadingSubject.next(false);
   }
 
-  nextPage() {
+  public nextPage() {
     this.postsLoadingSubject.next(true);
     this.currentPage++;
     this.loadPosts();
   }
-  previousPage() {
+  public previousPage() {
     this.postsLoadingSubject.next(true);
     this.currentPage--;
     this.loadPosts();
   }
 
-  resetCounts() {
+  public resetCounts() {
     this.postsSubject.next([]);
     this.fetchedPosts = [];
     this.postIDs = [];
