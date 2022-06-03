@@ -1,0 +1,18 @@
+@import "src/variables.scss";
+
+.post-count-info {
+  color: $hn-light-text;
+}
+.previous-page,
+.next-page {
+  .ng-fa-icon {
+    background: $hn-grey-bg;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    &:hover {
+      background: $hn-primary !important;
+      color: white;
+    }
+  }
+}

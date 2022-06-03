@@ -1,4 +1,5 @@
-export interface Post {
+export interface IPost {
+  image: string;
   title: string;
   url?: string;
   by: string;

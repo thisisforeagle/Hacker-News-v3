@@ -1,6 +1,9 @@
+@import "src/variables.scss";
+
 .post {
   background: white;
   border-bottom: 1px solid #ececec;
+  cursor: pointer;
   .post-image {
     background-size: cover;
     background-position: center;
@@ -26,12 +29,12 @@
     }
     .url {
       width: 100% !important;
-      color: #226efd;
+      color: $hn-primary;
     }
     .metadata {
       display: inline-block;
       margin-right: 40px;
-      color: #adb5bd;
+      color: $hn-light-text;
       font-size: 0.9em;
     }
     .truncate {
@@ -41,13 +44,33 @@
       text-overflow: ellipsis;
     }
   }
+  .center-post-vertically {
+    display: flex;
+    align-items: center;
+  }
   .comment-count {
-    .count {
+    background: $hn-grey-bg;
+
+    .share,
+    .favourite {
+      color: $hn-light-text;
+      cursor: pointer;
+    }
+    .share:hover {
+      color: $hn-primary;
+    }
+    .favourite:hover {
+      color: #ffc107;
+    }
+  }
+  .center-vertical {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
       font-size: 0.8em;
-      color: #adb5bd;
-      padding-top: 29px;
-      background: #f8f8f8;
-      height: 100%;
+      color: $hn-light-text;
     }
   }
 }

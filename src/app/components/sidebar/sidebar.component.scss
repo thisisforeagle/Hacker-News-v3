@@ -1,4 +1,19 @@
+@import "src/variables.scss";
+
 #sidebar {
   height: 100vh;
   position: fixed;
+
+  .nav {
+    .nav-item {
+      border: 2px solid transparent;
+      &:hover {
+        border: 2px solid $hn-primary;
+        border-radius: 5px;
+      }
+      .nav-link {
+        color: white;
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Post } from 'src/app/interfaces/post';
-import { faThumbsUp, faUser, faClock, faMessage, faAt } from '@fortawesome/free-solid-svg-icons';
+import { IPost } from 'src/app/interfaces/post';
+import { faThumbsUp, faUser, faClock, faMessage, faAt, faShareNodes, faStar } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -9,13 +9,15 @@ import { faThumbsUp, faUser, faClock, faMessage, faAt } from '@fortawesome/free-
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  @Input() post: Post;
+  @Input() post: IPost;
 
   faThumbsUp = faThumbsUp;
   faUser = faUser;
   faClock = faClock;
   faMessage = faMessage;
   faAt = faAt;
+  faShareNodes = faShareNodes;
+  faStar = faStar;
 
   constructor() { }
 

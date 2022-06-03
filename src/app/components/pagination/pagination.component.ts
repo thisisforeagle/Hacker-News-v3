@@ -1,40 +1,32 @@
-import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IPost } from 'src/app/interfaces/post';
 import { DataService } from 'src/app/services/data.service';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'hn-new-posts',
-  templateUrl: './new-posts.component.html',
-  styleUrls: ['./new-posts.component.scss'],
-  animations: [
-    trigger('listAnimation', [
-      transition(':enter', [
-        query('.hn-post-item', style({ opacity: 0, transform: 'translateY(-100%)' })),
-        query('.hn-post-item',
-          stagger('100ms', [
-            animate('100ms', style({ opacity: 1, transform: 'translateY(0)' }))
-          ]))
-      ])
-    ])
-  ]
+  selector: 'hn-pagination',
+  templateUrl: './pagination.component.html',
+  styleUrls: ['./pagination.component.scss']
 })
-export class NewPostsComponent implements OnInit {
-  posts: IPost[] = [];
+export class PaginationComponent implements OnInit {
+
   postsSubscription: Subscription;
   postsLoadingSubject: Subscription;
-  isLoading: boolean = true;
+  posts: IPost[] = [];
   activePostCount: number = 0;
   totalPostCount: number = 0;
+  isLoading: boolean = true;
+
+  faChevronLeft = faChevronLeft;
+  faChevronRight = faChevronRight;
   currentPage: number = 1;
 
   constructor(
     private _dataService: DataService
   ) { }
 
-  async ngOnInit(): Promise<void> {
-    this._dataService.getPosts('new');
+  ngOnInit(): void {
     this.postsSubscription = this._dataService.postsSubject
       .subscribe(
         (posts: IPost[]) => {
@@ -44,6 +36,8 @@ export class NewPostsComponent implements OnInit {
               this.posts = posts;
               console.log(posts);
               this.currentPage = this._dataService.currentPage;
+              this.activePostCount = this._dataService.nextPostIndex;
+              this.totalPostCount = this._dataService.postIDs.length;
             }, 0);
           }
         }
@@ -60,4 +54,12 @@ export class NewPostsComponent implements OnInit {
     this.postsSubscription.unsubscribe();
     this.postsLoadingSubject.unsubscribe();
   }
+
+  nextPage() {
+    this._dataService.nextPage();
+  }
+  previousPage() {
+    this._dataService.previousPage();
+  }
+
 }

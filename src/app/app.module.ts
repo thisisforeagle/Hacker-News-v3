@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UrlRootPipe } from './pipes/url-root.pipe';
 import { TimeStampPipe } from './pipes/time-stamp.pipe';
 import { TimeagoModule } from 'ngx-timeago';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -30,10 +32,12 @@ import { TimeagoModule } from 'ngx-timeago';
     FooterComponent,
     SidebarComponent,
     UrlRootPipe,
-    TimeStampPipe
+    TimeStampPipe,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,

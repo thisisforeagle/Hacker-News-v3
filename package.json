@@ -24,6 +24,7 @@
     "bootstrap": "^5.1.3",
     "jquery": "^3.6.0",
     "karma-coverage-istanbul-reporter": "^3.0.3",
+    "ngentest": "^1.4.4",
     "ngx-timeago": "^2.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

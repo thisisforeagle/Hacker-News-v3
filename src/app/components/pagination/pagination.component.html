@@ -1,0 +1,17 @@
+<div class="row mt-4">
+  <div class="col text-center previous-page">
+    <fa-icon [icon]="faChevronLeft"
+             (click)="previousPage()"
+             *ngIf="posts.length > 0 && currentPage > 1"></fa-icon>
+  </div>
+  <div class="col text-center">
+    <div class="post-count-info">
+      <strong>{{ (currentPage * 10) - 9 }}</strong> to <strong>{{ (currentPage * 10) }}</strong> of <strong>{{ totalPostCount }}</strong>
+    </div>
+  </div>
+  <div class="col text-center next-page">
+    <fa-icon [icon]="faChevronRight"
+             (click)="nextPage()"
+             *ngIf="posts.length > 0"></fa-icon>
+  </div>
+</div>

@@ -8,7 +8,7 @@ import {
 
 import { DataService } from './data.service';
 import { BASE_URL } from '../app.constants';
-import { Post } from '../interfaces/post';
+import { IPost } from '../interfaces/post';
 
 describe('DataService', () => {
   let service: DataService;
@@ -28,7 +28,7 @@ describe('DataService', () => {
 
   it('"HNGet" should fetch post id/s from api', (done) => {
 
-    service.HNGet('stories', 'ask').subscribe((res) => {
+    service.HNGet('ask').subscribe((res) => {
       expect(res).toEqual([123]);
     });
     const req = httpController.expectOne({
@@ -40,7 +40,7 @@ describe('DataService', () => {
   });
 
   it('"getPost" should get post JSON for an id from api', (done) => {
-    const mockPost: Post = {
+    const mockPost: IPost = {
       "by": "pabs3",
       "descendants": 182,
       "id": 31590724,

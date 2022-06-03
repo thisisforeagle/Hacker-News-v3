@@ -1,47 +1,58 @@
 <div class="post">
   <div class="row p-0 m-0">
     <div class="col-sm-12 col-md-3 post-image"
-         style="background-image: url('https://picsum.photos/200')">
+         [ngStyle]="{ 'background-image': 'url(' + post.image + ')'}">
 
     </div>
-    <div class="col-sm-12 col-md-7 p-5 content-container">
-      <p class="title">
-        {{ post?.title }}
-      </p>
-      <div class="row url-container">
-        <div class="url"
-             [title]="post?.url">
-          <fa-icon [icon]="faAt"></fa-icon>
-          {{ post?.url || '' | urlRoot }}
+    <div class="col-sm-12 col-md-7 content-container center-post-vertically">
+      <div class="">
+        <p class="title">
+          {{ post?.title }}
+        </p>
+        <div class="row url-container">
+          <div class="url"
+               [title]="post?.url">
+            <fa-icon [icon]="faAt"></fa-icon>
+            {{ post?.url || '' | urlRoot }}
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="likes metadata truncate"
-               [title]="post?.score">
-            <fa-icon [icon]="faThumbsUp"></fa-icon>
-            {{ post?.score }} likes
-          </div>
-          <div class="user metadata truncate"
-               [title]="post?.by">
-            <fa-icon [icon]="faUser"></fa-icon>
-            {{ post?.by }}
-          </div>
-          <div class="date metadata truncate"
-               [title]="post?.time | timeStamp">
-            <fa-icon [icon]="faClock"></fa-icon>
-            <div class="mx-1"
-                 style="display: inline-block;"
-                 timeago
-                 [date]="post.time * 1000"
-                 *ngIf="post?.time"></div>
+        <div class="row">
+          <div class="col">
+            <div class="likes metadata truncate"
+                 [title]="post?.score">
+              <fa-icon [icon]="faThumbsUp"></fa-icon>
+              {{ post?.score }} likes
+            </div>
+            <div class="user metadata truncate"
+                 [title]="post?.by">
+              <fa-icon [icon]="faUser"></fa-icon>
+              {{ post?.by }}
+            </div>
+            <div class="date metadata truncate"
+                 [title]="post?.time | timeStamp">
+              <fa-icon [icon]="faClock"></fa-icon>
+              <div class="mx-1"
+                   style="display: inline-block;"
+                   timeago
+                   [date]="post.time * 1000"
+                   *ngIf="post?.time"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-2 m-0 p-0 comment-count text-center">
-      <p class="count">{{ post?.kids?.length || 0 }}<br>Comments
-      </p>
+    <div class="col-sm-12 col-md-2 m-0 p-0 comment-count text-center center-vertical">
+      <div>
+        <p>{{ post?.kids?.length || 0 }}<br>Comments</p>
+        <div class="row">
+          <div class="col share">
+            <fa-icon [icon]="faShareNodes"></fa-icon>
+          </div>
+          <div class="col favourite">
+            <fa-icon [icon]="faStar"></fa-icon>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
