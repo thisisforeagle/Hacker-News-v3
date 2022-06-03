@@ -1,15 +1,17 @@
 <div class="post">
-  <div class="row p-0 m-0">
+  <div class="row content p-0 m-0">
     <div class="col-sm-12 col-md-3 post-image"
          [ngStyle]="{ 'background-image': 'url(' + post.image + ')'}">
 
     </div>
     <div class="col-sm-12 col-md-7 content-container center-post-vertically">
       <div class="">
-        <p class="title">
+        <p class="title"
+           (click)="openPost()">
           {{ post?.title }}
         </p>
-        <div class="row url-container">
+        <div class="row url-container"
+             *ngIf="post?.url">
           <div class="url"
                [title]="post?.url">
             <fa-icon [icon]="faAt"></fa-icon>
@@ -43,7 +45,7 @@
     </div>
     <div class="col-sm-12 col-md-2 m-0 p-0 comment-count text-center center-vertical">
       <div>
-        <p>{{ post?.kids?.length || 0 }}<br>Comments</p>
+        <p>{{ post?.descendants || 0 }}<br>Comments</p>
         <div class="row">
           <div class="col share">
             <fa-icon [icon]="faShareNodes"></fa-icon>

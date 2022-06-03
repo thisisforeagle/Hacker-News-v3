@@ -24,4 +24,8 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openPost() {
+    window.open(`https://hacker-news.firebaseio.com/v0/item/${ this.post.id }.json?print=pretty`);
+  }
+
 }

@@ -1,76 +1,82 @@
 @import "src/variables.scss";
 
 .post {
-  background: white;
-  border-bottom: 1px solid #ececec;
-  cursor: pointer;
-  .post-image {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .content-container {
-    .title {
-      margin-bottom: 0px;
-      font-size: 1.3em;
-    }
-    .url-container {
-      margin-bottom: 23px;
-    }
-    .user {
-      width: 130px;
-      overflow: hidden;
-    }
-    .likes {
-      width: 100px !important;
-    }
-    .date {
-      width: 150px !important;
-    }
-    .url {
-      width: 100% !important;
-      color: $hn-primary;
-    }
-    .metadata {
-      display: inline-block;
-      margin-right: 40px;
-      color: $hn-light-text;
-      font-size: 0.9em;
-    }
-    .truncate {
-      width: 100px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-  .center-post-vertically {
-    display: flex;
-    align-items: center;
-  }
-  .comment-count {
-    background: $hn-grey-bg;
+  background: #ffffff40;
+  border-top: 1px solid $hn-grey-bg;
+  border-right: 1px solid $hn-grey-bg;
 
-    .share,
-    .favourite {
-      color: $hn-light-text;
-      cursor: pointer;
+  .content {
+    min-height: 130px;
+    .post-image {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
-    .share:hover {
-      color: $hn-primary;
+    .content-container {
+      .title {
+        margin-bottom: 0px;
+        font-size: 1.3em;
+        &:hover {
+          cursor: pointer;
+          color: $hn-primary;
+        }
+      }
+      .url-container {
+        margin-bottom: 23px;
+      }
+      .user {
+        width: 130px;
+        overflow: hidden;
+      }
+      .likes {
+        width: 100px !important;
+      }
+      .date {
+        width: 150px !important;
+      }
+      .url {
+        width: 100% !important;
+        color: $hn-primary;
+      }
+      .metadata {
+        display: inline-block;
+        margin-right: 40px;
+        color: $hn-light-text;
+        font-size: 0.9em;
+      }
+      .truncate {
+        width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
-    .favourite:hover {
-      color: #ffc107;
+    .center-post-vertically {
+      display: flex;
+      align-items: center;
     }
-  }
-  .center-vertical {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .comment-count {
+      .share,
+      .favourite {
+        color: $hn-light-text;
+        cursor: pointer;
+      }
+      .share:hover {
+        color: $hn-primary;
+      }
+      .favourite:hover {
+        color: #ffc107;
+      }
+    }
+    .center-vertical {
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-    p {
-      font-size: 0.8em;
-      color: $hn-light-text;
+      p {
+        font-size: 0.8em;
+        color: $hn-light-text;
+      }
     }
   }
 }
