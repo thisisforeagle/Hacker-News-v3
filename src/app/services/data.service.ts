@@ -43,7 +43,7 @@ export class DataService {
       this.postsLoadingSubject.next(false);
     }, 750);
   }
-  private getPost(id: any): Observable<Object> {
+  public getPost(id: any): Observable<Object> {
     return this._http
       .get(`${ BASE_URL }item/${ id }.json`);
   }
