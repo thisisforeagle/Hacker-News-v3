@@ -18,15 +18,16 @@ describe('FooterComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-  it('should contain footer message', async () => {
-
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.footer .container .text-muted').textContent).toContain('By Darragh King for Genesys');
-
-  });
+  describe('Create', () => {
+    it('should be created', () => {
+      expect(component).toBeTruthy();
+    });
+  })
+  describe('Content', () => {
+    it('should contain footer message', async () => {
+      fixture.detectChanges();
+      const compiled = fixture.debugElement.nativeElement;
+      expect(compiled.querySelector('.footer .container .text-muted').textContent).toContain('By Darragh King for Genesys');
+    });
+  })
 });

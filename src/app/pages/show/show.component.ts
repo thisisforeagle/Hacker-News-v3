@@ -57,7 +57,5 @@ export class ShowComponent implements OnInit {
     this.postsSubscription.unsubscribe();
     this.postsLoadingSubject.unsubscribe();
   }
-  getMore() {
-    this._dataService.loadPosts();
-  }
+
 }

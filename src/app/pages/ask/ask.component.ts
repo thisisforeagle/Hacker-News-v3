@@ -56,7 +56,5 @@ export class AskComponent implements OnInit {
     this.postsSubscription.unsubscribe();
     this.postsLoadingSubject.unsubscribe();
   }
-  getMore() {
-    this._dataService.loadPosts();
-  }
+
 }

@@ -61,5 +61,8 @@ export class PaginationComponent implements OnInit {
   previousPage() {
     this._dataService.previousPage();
   }
+  hasPosts() {
+    return this.posts?.length > 0
+  }
 
 }

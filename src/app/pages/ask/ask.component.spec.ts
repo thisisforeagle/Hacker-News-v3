@@ -3,22 +3,22 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { IPost } from 'src/app/interfaces/post';
 import { DataService } from 'src/app/services/data.service';
 
-import { ShowComponent } from './show.component';
+import { AskComponent } from './ask.component';
 
 describe('ShowComponent', () => {
   let service: DataService;
-  let component: ShowComponent;
-  let fixture: ComponentFixture<ShowComponent>;
+  let component: AskComponent;
+  let fixture: ComponentFixture<AskComponent>;
   let httpController: HttpTestingController;
 
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ShowComponent],
+      declarations: [AskComponent],
       imports: [HttpClientTestingModule],
     }).compileComponents();
     httpController = TestBed.inject(HttpTestingController);
-    fixture = TestBed.createComponent(ShowComponent);
+    fixture = TestBed.createComponent(AskComponent);
     component = fixture.componentInstance;
     service = TestBed.inject(DataService);
     fixture.detectChanges();

@@ -24,12 +24,13 @@ describe('NewPostsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  describe('Create', () => {
+    it('should be created', () => {
+      expect(component).toBeTruthy();
+    });
+  })
 
   describe('Subjects', () => {
-    const isLoading = false;
     const mockPostArray: IPost[] = [
       {
         "image": "http://img.com",

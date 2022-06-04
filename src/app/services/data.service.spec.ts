@@ -1,10 +1,6 @@
-import { fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { Observable } from 'rxjs';
+import { TestBed } from '@angular/core/testing';
 
-import {
-  HttpClientTestingModule,
-  HttpTestingController
-} from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { DataService } from './data.service';
 import { BASE_URL } from '../app.constants';
@@ -21,14 +17,13 @@ describe('DataService', () => {
     service = TestBed.inject(DataService);
     httpController = TestBed.inject(HttpTestingController);
   });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-
-  describe('Methods', () => {
-    it('"HNGet" should fetch post id/s from api', (done) => {
-
+  describe('Create', () => {
+    it('should be created', () => {
+      expect(service).toBeTruthy();
+    });
+  })
+  describe('Posts', () => {
+    it('HNGet should fetch post id/s from api', (done) => {
       service.HNGet('ask').subscribe((res) => {
         expect(res).toEqual([123]);
       });
@@ -65,7 +60,40 @@ describe('DataService', () => {
       req.flush(mockPost);
       done();
     });
-  })
+  });
+  describe('Pagination', () => {
+    it('nextPage should increment page, and call loadPosts', () => {
+      spyOn(service, "loadPosts");
+      service.currentPage = 1;
+      service.nextPage();
+      service.postsLoadingSubject.subscribe(subject => {
+        expect(subject).toBeTrue;
+      })
+      expect(service.currentPage).toBe(2);
+      expect(service.loadPosts).toHaveBeenCalled();
+    })
 
-
+    it('previousPage should decrement page, and call loadPosts', () => {
+      spyOn(service, "loadPosts");
+      service.currentPage = 2;
+      service.previousPage();
+      service.postsLoadingSubject.subscribe(subject => {
+        expect(subject).toBeTrue;
+      })
+      expect(service.currentPage).toBe(1);
+      expect(service.loadPosts).toHaveBeenCalled();
+    })
+  });
+  describe('Reset', () => {
+    it('resetCounts should reset properties', () => {
+      service.resetCounts();
+      service.postsSubject.subscribe(subject => {
+        expect(subject).toEqual([]);
+      })
+      expect(service.fetchedPosts).toEqual([]);
+      expect(service.postIDs).toEqual([]);
+      expect(service.nextPostIndex).toBe(0);
+      expect(service.morePostsAvailable).toBe(false);
+    })
+  });
 });

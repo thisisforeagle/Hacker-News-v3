@@ -1,9 +1,11 @@
-<div class="row mt-4">
+<div class="row mt-4"
+     *ngIf="hasPosts()">
   <div class="col text-center previous-page">
     <fa-icon [icon]="faChevronLeft"
-             id="previous-page"
+             data-testId="prev-page"
              (click)="previousPage()"
-             *ngIf="posts.length > 0 && currentPage > 1"></fa-icon>
+             *ngIf="currentPage > 1"></fa-icon>
+    {{currentPage}}
   </div>
   <div class="col text-center">
     <div class="post-count-info">
@@ -12,8 +14,7 @@
   </div>
   <div class="col text-center next-page">
     <fa-icon [icon]="faChevronRight"
-             id="next-page"
-             (click)="nextPage()"
-             *ngIf="posts.length > 0"></fa-icon>
+             data-testId="next-page"
+             (click)="nextPage()"></fa-icon>
   </div>
 </div>
