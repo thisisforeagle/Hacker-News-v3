@@ -1,0 +1,32 @@
+<div class="m-5">
+  <div class="row m-0 w-100 header-row">
+    <div class="col-sm-3 col-md-1 back-button-container center-vertical"
+         (click)="back()">
+      <fa-icon [icon]="faChevronLeft"></fa-icon>
+    </div>
+    <div class="col-sm-9 col-md-11">
+      <h2>{{ post?.title }}</h2>
+    </div>
+  </div>
+  <div class="w-100">
+    <hr>
+    <span class="user metadata">
+      <fa-icon [icon]="faUser"></fa-icon>{{ post?.by }}
+    </span>
+    <span class="time metadata">
+      <fa-icon [icon]="faClock"></fa-icon>
+      <span timeago
+            [date]="post.time * 1000"
+            *ngIf="post?.time"></span>
+    </span>
+    <span class="likes metadata">
+      <fa-icon [icon]="faThumbsUp"></fa-icon>{{ post?.score }} likes
+    </span>
+    <span class="comments metadata">
+      <fa-icon [icon]="faMessage"></fa-icon>
+      {{ post?.kids?.length || post?.descendants }} comments
+    </span>
+    <hr>
+    <div [innerHTML]="post?.text"></div>
+  </div>
+</div>

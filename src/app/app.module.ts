@@ -19,6 +19,7 @@ import { UrlRootPipe } from './pipes/url-root.pipe';
 import { TimeStampPipe } from './pipes/time-stamp.pipe';
 import { TimeagoModule } from 'ngx-timeago';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { PostPageComponent } from './pages/post-page/post-page.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     SidebarComponent,
     UrlRootPipe,
     TimeStampPipe,
-    PaginationComponent
+    PaginationComponent,
+    PostPageComponent
   ],
   imports: [
     BrowserModule,

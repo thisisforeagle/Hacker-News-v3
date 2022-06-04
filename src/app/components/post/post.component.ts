@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IPost } from 'src/app/interfaces/post';
 import { faThumbsUp, faUser, faClock, faMessage, faAt, faShareNodes, faStar } from '@fortawesome/free-solid-svg-icons';
-
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'hn-post',
@@ -19,13 +19,22 @@ export class PostComponent implements OnInit {
   faShareNodes = faShareNodes;
   faStar = faStar;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    console.log(this.router.url);
 
+  }
   ngOnInit(): void {
   }
 
   openPost() {
-    window.open(`https://hacker-news.firebaseio.com/v0/item/${ this.post.id }.json?print=pretty`);
+    if (this.post.url) {
+      window.open(this.post.url);
+    } else {
+      this.router.navigate(['/post', this.router.url.split('/')[1], this.post.id]);
+    }
   }
 
 }
