@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IComment, IPost } from 'src/app/interfaces/post';
+import { IComment, IPost } from 'src/app/interfaces/models';
 import { faChevronLeft, faUser, faClock, faThumbsUp, faMessage, faBan } from '@fortawesome/free-solid-svg-icons';
 import { DataService } from 'src/app/services/data.service';
 

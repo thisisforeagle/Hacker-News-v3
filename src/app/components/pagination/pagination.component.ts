@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IPost } from 'src/app/interfaces/post';
+import { IPost } from 'src/app/interfaces/models';
 import { DataService } from 'src/app/services/data.service';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 

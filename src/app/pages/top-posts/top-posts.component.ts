@@ -1,7 +1,7 @@
 import { trigger, transition, query, style, stagger, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IPost } from 'src/app/interfaces/post';
+import { IPost } from 'src/app/interfaces/models';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({

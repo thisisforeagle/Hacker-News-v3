@@ -4,7 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { DataService } from './data.service';
 import { BASE_URL } from '../app.constants';
-import { IPost } from '../interfaces/post';
+import { IPost } from '../interfaces/models';
 
 describe('DataService', () => {
   let service: DataService;

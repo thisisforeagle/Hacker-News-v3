@@ -26,6 +26,7 @@ import { PostPageComponent } from './pages/post-page/post-page.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { ErrorService } from './services/error.service';
 import { SortComponent } from './components/sort/sort.component';
+import { UserComponent } from './pages/user/user.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SortComponent } from './components/sort/sort.component';
     PaginationComponent,
     PostPageComponent,
     CommentComponent,
-    SortComponent
+    SortComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

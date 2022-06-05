@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 import { DataService } from 'src/app/services/data.service';
 import { PaginationComponent } from './pagination.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { IPost } from 'src/app/interfaces/post';
+import { IPost } from 'src/app/interfaces/models';
 
 describe('PaginationComponent', () => {
   let service: DataService;

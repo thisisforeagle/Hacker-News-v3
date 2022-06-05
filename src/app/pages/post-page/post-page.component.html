@@ -3,7 +3,7 @@
   <div class="post-container shadow rounded mb-3 p-3">
     <div class="row m-0 mb-3 w-100 header-row">
       <div class="col-sm-3 col-md-1 back-button-container center-vertical"
-           *ngIf="post?.title"
+           *ngIf="post?.category != ''"
            (click)="back()">
         <fa-icon [icon]="faChevronLeft"></fa-icon>
       </div>

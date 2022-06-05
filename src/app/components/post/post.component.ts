@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IPost } from 'src/app/interfaces/post';
+import { IPost } from 'src/app/interfaces/models';
 import { faThumbsUp, faUser, faClock, faMessage, faAt, faShareNodes, faStar } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -35,6 +35,10 @@ export class PostComponent implements OnInit {
     } else {
       this.router.navigate(['/post', this.router.url.split('/')[1], this.post.id]);
     }
+  }
+
+  openUser() {
+    this.router.navigate(['/user', this.post.by]);
   }
 
 }

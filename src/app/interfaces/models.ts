@@ -21,3 +21,10 @@ export interface IComment {
   type: string;
   deleted: string;
 }
+export interface IUser {
+  id: number;
+  created: number;
+  kerma: number;
+  about: string;
+  submitted: number[];
+}

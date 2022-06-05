@@ -26,6 +26,7 @@
               {{ post?.score }} likes
             </div>
             <div class="user metadata truncate"
+                 (click)="openUser()"
                  [title]="post?.by">
               <fa-icon [icon]="faUser"></fa-icon>
               {{ post?.by }}

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BASE_URL } from '../app.constants';
-import { IPost } from '../interfaces/post';
+import { IPost } from '../interfaces/models';
 import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 
 @Injectable({
@@ -49,6 +49,10 @@ export class DataService {
   public getPost(id: number): Observable<Object> {
     return this._http
       .get(`${ BASE_URL }item/${ id }.json`);
+  }
+  public getUser(user: number): Observable<Object> {
+    return this._http
+      .get(`${ BASE_URL }user/${ user }.json`);
   }
 
   public loadPosts(direction?: string) {

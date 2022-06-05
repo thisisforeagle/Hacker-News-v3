@@ -1,0 +1,15 @@
+@import "src/variables.scss";
+
+.user-page {
+  .user-info-card {
+    min-height: 200px;
+    background: $hn-nav-dark;
+    color: $hn-light-text;
+    margin-top: 45px;
+    border-radius: 10px;
+    .username {
+      font-size: 2em;
+      margin-bottom: 40px;
+    }
+  }
+}

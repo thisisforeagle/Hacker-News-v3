@@ -32,6 +32,10 @@
       .user {
         width: 130px;
         overflow: hidden;
+        cursor: pointer;
+        &:hover {
+          color: $hn-primary;
+        }
       }
       .likes {
         width: 100px !important;

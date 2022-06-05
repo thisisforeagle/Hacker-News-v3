@@ -1,0 +1,73 @@
+<div class="user-page m-5">
+  <div class="row"
+       [class.pre-loader]="!user">
+    <div class="col-sm-12 col-md-4">
+      <div class="w-100 p-4 text-center user-info-card shadow rounded">
+        <div class="user-image">
+          <fa-icon [icon]="faUser"></fa-icon>
+        </div>
+        <div class="username">{{ id }}</div>
+        <div class="about"
+             [innerHTML]="user?.about"></div>
+        <hr>
+        <div class="joined">
+          <strong>Joined: </strong>
+          <div class="mx-1"
+               style="display: inline-block;"
+               timeago
+               [date]="user?.created * 1000"
+               *ngIf="user?.created"></div>
+        </div>
+        <div class="score">
+          <strong>Total karma: </strong> {{ user?.karma }}
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-8">
+      <ul class="nav nav-tabs"
+          id="myTab"
+          role="tablist">
+        <li class="nav-item"
+            role="presentation">
+          <button class="nav-link active"
+                  id="posts-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#posts"
+                  type="button"
+                  role="tab"
+                  aria-controls="posts"
+                  aria-selected="true">Posts ({{ posts.length }})</button>
+        </li>
+        <li class="nav-item"
+            role="presentation">
+          <button class="nav-link"
+                  id="comments-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#comments"
+                  type="button"
+                  role="tab"
+                  aria-controls="comments"
+                  aria-selected="false">Comments ({{ comments.length }})</button>
+        </li>
+      </ul>
+      <div class="tab-content"
+           id="myTabContent">
+        <div class="tab-pane fade show active"
+             id="posts"
+             role="tabpanel"
+             aria-labelledby="posts-tab">
+          <hn-post class="hn-post-item"
+                   *ngFor="let post of posts"
+                   [post]="post"></hn-post>
+        </div>
+        <div class="tab-pane fade"
+             id="comments"
+             role="tabpanel"
+             aria-labelledby="comments-tab">
+          <hn-comment *ngFor="let comment of comments"
+                      [comment]="comment"></hn-comment>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

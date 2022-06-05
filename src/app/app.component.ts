@@ -10,6 +10,7 @@ import { DataService } from './services/data.service';
 export class AppComponent {
 
   isPostPage: boolean = false;
+  isUserPage: boolean = false;
   sortChoices: string[] = [
     'Sort by time posted',
     'Sort by number likes',
@@ -24,6 +25,7 @@ export class AppComponent {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         this.isPostPage = this.router.url.indexOf('/post/') > -1
+        this.isUserPage = this.router.url.indexOf('/user/') > -1
       }
     });
   }

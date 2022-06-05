@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { faChevronLeft, faUser, faClock, faThumbsUp, faMessage } from '@fortawesome/free-solid-svg-icons';
-import { ErrorService } from 'src/app/services/error.service';
-import { trigger, transition, query, style, stagger, animate } from '@angular/animations';
 
 @Component({
   selector: 'hn-post-page',
@@ -13,7 +11,7 @@ import { trigger, transition, query, style, stagger, animate } from '@angular/an
 export class PostPageComponent implements OnInit {
   id: number = 0;
   post: any;
-  category: string;
+  category: string = '';
   comments: any = [];
   isLoading: boolean = true;
 
@@ -31,8 +29,7 @@ export class PostPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private _dataService: DataService,
-    private router: Router,
-    private _errorService: ErrorService
+    private router: Router
   ) {
     this.route.params.subscribe(params => {
       this.id = params["id"]

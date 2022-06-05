@@ -7,12 +7,12 @@
           <hn-sort class="w-100"
                    [sortChoices]="sortChoices"
                    (chosenSort)="sortPosts($event)"
-                   sortType="comments"
-                   *ngIf="!isPostPage"></hn-sort>
+                   sortType="posts"
+                   *ngIf="!isPostPage && !isUserPage"></hn-sort>
         </div>
         <div class="col center-vertical">
           <hn-pagination class="w-100"
-                         *ngIf="!isPostPage"></hn-pagination>
+                         *ngIf="!isPostPage && !isUserPage"></hn-pagination>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
         </div>
         <div class="col center-vertical">
           <hn-pagination class="w-100"
-                         *ngIf="!isPostPage"></hn-pagination>
+                         *ngIf="!isPostPage && !isUserPage"></hn-pagination>
         </div>
       </div>
     </div>

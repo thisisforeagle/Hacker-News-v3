@@ -6,6 +6,7 @@ import { NewPostsComponent } from './pages/new-posts/new-posts.component';
 import { PostPageComponent } from './pages/post-page/post-page.component';
 import { ShowComponent } from './pages/show/show.component';
 import { TopPostsComponent } from './pages/top-posts/top-posts.component';
+import { UserComponent } from './pages/user/user.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'post/:category/:id',
     component: PostPageComponent
+  },
+  {
+    path: 'user/:id',
+    component: UserComponent
   },
   {
     path: '**',
