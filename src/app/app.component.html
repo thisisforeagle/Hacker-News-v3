@@ -2,7 +2,9 @@
   <hn-sidebar></hn-sidebar>
   <div class="page-content">
     <hn-pagination *ngIf="!isPostPage"></hn-pagination>
-    <router-outlet></router-outlet>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
     <hn-pagination *ngIf="!isPostPage"></hn-pagination>
     <hn-footer></hn-footer>
   </div>
