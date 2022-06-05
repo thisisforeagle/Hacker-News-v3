@@ -1,6 +1,6 @@
 <div class="m-5">
   <div class="post-container shadow rounded mb-3 p-3">
-    <div class="row m-0 w-100 header-row">
+    <div class="row m-0 mb-3 w-100 header-row">
       <div class="col-sm-3 col-md-1 back-button-container center-vertical"
            (click)="back()">
         <fa-icon [icon]="faChevronLeft"></fa-icon>
@@ -10,23 +10,24 @@
       </div>
     </div>
     <div class="w-100 mb-4">
-      <hr>
-      <span class="user metadata">
-        <fa-icon [icon]="faUser"></fa-icon>{{ post?.by }}
-      </span>
-      <span class="time metadata">
-        <fa-icon [icon]="faClock"></fa-icon>
-        <span timeago
-              [date]="post.time * 1000"
-              *ngIf="post?.time"></span>
-      </span>
-      <span class="likes metadata">
-        <fa-icon [icon]="faThumbsUp"></fa-icon>{{ post?.score }} likes
-      </span>
-      <span class="comments metadata">
-        <fa-icon [icon]="faMessage"></fa-icon>
-        {{ post?.kids?.length || post?.descendants }} comments
-      </span>
+      <div class="user-meta-container text-center mb-3">
+        <span class="user metadata">
+          <fa-icon [icon]="faUser"></fa-icon>{{ post?.by }}
+        </span>
+        <span class="time metadata">
+          <fa-icon [icon]="faClock"></fa-icon>
+          <span timeago
+                [date]="post.time * 1000"
+                *ngIf="post?.time"></span>
+        </span>
+        <span class="likes metadata">
+          <fa-icon [icon]="faThumbsUp"></fa-icon>{{ post?.score }} likes
+        </span>
+        <span class="comments metadata">
+          <fa-icon [icon]="faMessage"></fa-icon>
+          {{ post?.kids?.length || post?.descendants }} comments
+        </span>
+      </div>
       <div [innerHTML]="post?.text"></div>
     </div>
   </div>

@@ -19,4 +19,5 @@ export interface IComment {
   text: string;
   time: number;
   type: string;
+  deleted: string;
 }

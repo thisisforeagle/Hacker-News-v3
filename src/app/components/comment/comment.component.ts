@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IComment } from 'src/app/interfaces/post';
-import { faChevronLeft, faUser, faClock, faThumbsUp, faMessage } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faUser, faClock, faThumbsUp, faMessage, faBan } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'hn-comment',
@@ -16,10 +16,12 @@ export class CommentComponent implements OnInit {
   faClock = faClock;
   faThumbsUp = faThumbsUp;
   faMessage = faMessage;
+  faBan = faBan;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.comment);
 
   }
   getCommentCountText() {
@@ -33,7 +35,6 @@ export class CommentComponent implements OnInit {
       }
     } catch (error) {
       console.log('Comment count error');
-
     }
   }
 }
