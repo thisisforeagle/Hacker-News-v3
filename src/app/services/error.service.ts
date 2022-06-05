@@ -24,12 +24,7 @@ export class ErrorService implements ErrorHandler {
     this.logError(error);
     this.error(error);
 
-    if (Error instanceof HttpErrorResponse) {
-      console.log(error.status);
-    }
-    else {
-      console.error("An error has occurred: ", error);
-    }
+    console.error("An error has occurred: ", error);
 
     // optional: navigate to error page
     //const router = this._injector.get(Router);
