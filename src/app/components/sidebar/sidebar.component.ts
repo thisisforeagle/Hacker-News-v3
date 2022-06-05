@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { faCalendar, faCode } from '@fortawesome/free-solid-svg-icons';
 import { filter } from 'rxjs/operators';
+import { ErrorService } from 'src/app/services/error.service';
 
 @Component({
   selector: 'hn-sidebar',
@@ -15,7 +16,8 @@ export class SidebarComponent implements OnInit {
   activeURL: string = '/';
 
   constructor(
-    private router: Router
+    private router: Router,
+    private _errorService: ErrorService
   ) {
     router.events.pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(event => {
@@ -29,5 +31,7 @@ export class SidebarComponent implements OnInit {
   isActive(page) {
     return this.activeURL === page;
   }
-
+  showError() {
+    this._errorService.error('This feature is not available yet!');
+  }
 }

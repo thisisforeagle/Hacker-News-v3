@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +23,7 @@ import { TimeagoModule } from 'ngx-timeago';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { PostPageComponent } from './pages/post-page/post-page.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { ErrorService } from './services/error.service';
 
 @NgModule({
   declarations: [
@@ -45,9 +48,15 @@ import { CommentComponent } from './components/comment/comment.component';
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    TimeagoModule.forRoot()
+    TimeagoModule.forRoot(),
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: ErrorService,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

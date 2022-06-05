@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IPost } from 'src/app/interfaces/post';
 import { DataService } from 'src/app/services/data.service';
+import { ErrorService } from 'src/app/services/error.service';
 
 @Component({
   selector: 'hn-jobs',
@@ -28,11 +29,13 @@ export class JobsComponent implements OnInit {
   activePostCount: number = 0;
   totalPostCount: number = 0;
   constructor(
-    private _dataService: DataService
+    private _dataService: DataService,
+    private _errorService: ErrorService
   ) { }
 
   async ngOnInit(): Promise<void> {
     this._dataService.getPosts('job');
+
     this.postsSubscription = this._dataService.postsSubject
       .subscribe(
         (posts: IPost[]) => {

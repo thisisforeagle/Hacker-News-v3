@@ -1,6 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "./loading.scss";
-
+@import "~ngx-toastr/toastr";
 .center-vertical {
   display: flex;
   justify-content: center;

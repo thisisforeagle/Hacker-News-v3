@@ -1,7 +1,12 @@
 @import "src/variables.scss";
 
 .comment {
+  background: white;
+
   .user-meta-container {
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e9ecef;
+    margin-bottom: 5px;
     .user {
       width: 120px;
       text-overflow: ellipsis;

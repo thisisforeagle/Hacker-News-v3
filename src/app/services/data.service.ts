@@ -4,6 +4,7 @@ import { BASE_URL } from '../app.constants';
 import { IPost } from '../interfaces/post';
 import { BehaviorSubject, firstValueFrom, forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ErrorService } from './error.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,8 @@ export class DataService {
   currentPage: number = 1;
 
   constructor(
-    private _http: HttpClient
+    private _http: HttpClient,
+    private _errorService: ErrorService
   ) { }
 
   public HNGet(type: string) {
@@ -42,6 +44,7 @@ export class DataService {
     setTimeout(() => {
       this.postsLoadingSubject.next(false);
     }, 750);
+
   }
   public getPost(id: any): Observable<Object> {
     return this._http
@@ -78,6 +81,7 @@ export class DataService {
       );
     }
     this.postsLoadingSubject.next(false);
+
   }
 
   public nextPage() {

@@ -1,7 +1,9 @@
-<div class="m-5">
+<div class="m-5"
+     [class.pre-loader]="isLoading">
   <div class="post-container shadow rounded mb-3 p-3">
     <div class="row m-0 mb-3 w-100 header-row">
       <div class="col-sm-3 col-md-1 back-button-container center-vertical"
+           *ngIf="post?.title"
            (click)="back()">
         <fa-icon [icon]="faChevronLeft"></fa-icon>
       </div>
@@ -31,7 +33,8 @@
       <div [innerHTML]="post?.text"></div>
     </div>
   </div>
-  <div class="comments-container">
+  <div class="comments-container"
+       [class.pre-loader]="isLoading">
     <h4>{{ comments.length }} Comments</h4>
     <hn-comment *ngFor="let comment of comments"
                 [comment]="comment"></hn-comment>
