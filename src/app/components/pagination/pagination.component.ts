@@ -17,6 +17,7 @@ export class PaginationComponent implements OnInit {
   activePostCount: number = 0;
   totalPostCount: number = 0;
   isLoading: boolean = true;
+  loadingPosts: boolean = true;
 
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
@@ -45,7 +46,9 @@ export class PaginationComponent implements OnInit {
     this.postsLoadingSubject = this._dataService.postsLoadingSubject
       .subscribe(
         (isLoading: boolean) => {
-          this.isLoading = isLoading;
+          setTimeout(() => {
+            this.loadingPosts = isLoading;
+          }, 1000);
         }
       );
   }
@@ -60,9 +63,6 @@ export class PaginationComponent implements OnInit {
   }
   previousPage() {
     this._dataService.previousPage();
-  }
-  hasPosts() {
-    return this.posts?.length > 0
   }
   getPageMaxCount() {
     let count = 0;

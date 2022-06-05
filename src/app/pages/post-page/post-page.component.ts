@@ -23,6 +23,11 @@ export class PostPageComponent implements OnInit {
   faThumbsUp = faThumbsUp;
   faMessage = faMessage;
 
+  sortChoices: string[] = [
+    'Sort by time posted',
+    'Sort by number of replies',
+  ]
+
   constructor(
     private route: ActivatedRoute,
     private _dataService: DataService,
@@ -56,6 +61,8 @@ export class PostPageComponent implements OnInit {
           this.comments.push(comment);
           if (comment['kids']) {
             console.log(comment);
+          } else {
+            comment['kids'] = []
           }
         });
       });
@@ -65,5 +72,19 @@ export class PostPageComponent implements OnInit {
   }
   back() {
     this.router.navigate(['/' + this.category]);
+  }
+  sortPosts(event) {
+    let results = [];
+    switch (event) {
+      case 'Sort by time posted':
+        results = this.comments.sort((a, b) => (a.time > b.time) ? 1 : -1).reverse()
+        break;
+      case 'Sort by number of replies':
+        results = this.comments.sort((a, b) => (a.kids > b.kids) ? 1 : -1).reverse()
+        break;
+      default:
+        break;
+    }
+    this.comments = results;
   }
 }

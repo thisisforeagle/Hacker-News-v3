@@ -1,0 +1,11 @@
+<div class="sort-container">
+  <select class="form-control"
+          (change)="sortPosts()"
+          [(ngModel)]="selectedSort">
+    <option value=""
+            selected
+            disabled>Sort {{ sortType }} by ...</option>
+    <option *ngFor="let choice of sortChoices"
+            [value]="choice">{{ choice }}</option>
+  </select>
+</div>

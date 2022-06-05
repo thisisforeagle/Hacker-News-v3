@@ -1,4 +1,4 @@
-<div class="m-5"
+<div class="m-2"
      [class.pre-loader]="isLoading">
   <div class="post-container shadow rounded mb-3 p-3">
     <div class="row m-0 mb-3 w-100 header-row">
@@ -35,7 +35,17 @@
   </div>
   <div class="comments-container"
        [class.pre-loader]="isLoading">
-    <h4>{{ comments.length }} Comments</h4>
+    <div class="row mb-3">
+      <div class="col">
+        <h4>{{ comments.length }} Comments</h4>
+      </div>
+      <div class="col">
+        <hn-sort class="w-100"
+                 [sortChoices]="sortChoices"
+                 (chosenSort)="sortPosts($event)"
+                 sortType="comments"></hn-sort>
+      </div>
+    </div>
     <hn-comment *ngFor="let comment of comments"
                 [comment]="comment"></hn-comment>
   </div>

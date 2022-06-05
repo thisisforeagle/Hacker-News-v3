@@ -1,6 +1,5 @@
-<div class="row mt-4"
-     *ngIf="hasPosts()">
-  <div class="col text-center previous-page">
+<div class="pagination-container row m-0">
+  <div class="col text-center previous-page center-vertical">
     <fa-icon [icon]="faChevronLeft"
              data-testId="prev-page"
              (click)="previousPage()"
@@ -12,7 +11,7 @@
       <strong>{{ (currentPage * 10) - 9 }}</strong> to <strong>{{ getPageMaxCount() }}</strong> of <strong>{{ totalPostCount }}</strong>
     </div>
   </div>
-  <div class="col text-center next-page">
+  <div class="col text-center next-page center-vertical">
     <fa-icon [icon]="faChevronRight"
              data-testId="next-page"
              (click)="nextPage()"></fa-icon>

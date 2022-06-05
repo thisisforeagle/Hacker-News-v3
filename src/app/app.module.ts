@@ -1,6 +1,7 @@
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -24,6 +25,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { PostPageComponent } from './pages/post-page/post-page.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { ErrorService } from './services/error.service';
+import { SortComponent } from './components/sort/sort.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { ErrorService } from './services/error.service';
     TimeStampPipe,
     PaginationComponent,
     PostPageComponent,
-    CommentComponent
+    CommentComponent,
+    SortComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { ErrorService } from './services/error.service';
     HttpClientModule,
     FontAwesomeModule,
     TimeagoModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FormsModule
   ],
   providers: [
     {

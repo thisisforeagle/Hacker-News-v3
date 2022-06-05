@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,18 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   isPostPage: boolean = false;
+  sortChoices: string[] = [
+    'Sort by time posted',
+    'Sort by number likes',
+    'Sort by number of replies',
+  ]
+  title = 'hacker-news-v3';
 
   constructor(
-    private router: Router
+    private router: Router,
+    private _dataService: DataService
   ) {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
@@ -18,5 +27,8 @@ export class AppComponent {
       }
     });
   }
-  title = 'hacker-news-v3';
+  sortPosts(event) {
+    console.log(event);
+    this._dataService.sortPosts(event);
+  }
 }

@@ -1,11 +1,35 @@
 <div class="main-content">
   <hn-sidebar></hn-sidebar>
   <div class="page-content">
-    <hn-pagination *ngIf="!isPostPage"></hn-pagination>
+    <div class="container mt-2">
+      <div class="row page-meta-container">
+        <div class="col center-vertical">
+          <hn-sort class="w-100"
+                   [sortChoices]="sortChoices"
+                   (chosenSort)="sortPosts($event)"
+                   sortType="comments"
+                   *ngIf="!isPostPage"></hn-sort>
+        </div>
+        <div class="col center-vertical">
+          <hn-pagination class="w-100"
+                         *ngIf="!isPostPage"></hn-pagination>
+        </div>
+      </div>
+    </div>
     <div class="container">
       <router-outlet></router-outlet>
     </div>
-    <hn-pagination *ngIf="!isPostPage"></hn-pagination>
+    <div class="container">
+      <div class="row">
+        <div class="col center-vertical">
+
+        </div>
+        <div class="col center-vertical">
+          <hn-pagination class="w-100"
+                         *ngIf="!isPostPage"></hn-pagination>
+        </div>
+      </div>
+    </div>
     <hn-footer></hn-footer>
   </div>
 </div>

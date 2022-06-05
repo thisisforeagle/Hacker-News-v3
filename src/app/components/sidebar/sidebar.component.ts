@@ -31,7 +31,7 @@ export class SidebarComponent implements OnInit {
   isActive(page) {
     return this.activeURL === page;
   }
-  showError() {
-    this._errorService.error('This feature is not available yet!');
+  showError(text) {
+    this._errorService.error(text + ' is not available yet!');
   }
 }

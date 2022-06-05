@@ -15,7 +15,7 @@ export class ErrorService implements ErrorHandler {
 
   error(error) {
     const _toastService = this._injector.get(ToastrService);
-    _toastService.error("An error occurred. Please check the console for details!");
+    _toastService.error(error || "An error occurred. Please check the console for details!");
   }
   logError(error) {
     // Write logic here to log error

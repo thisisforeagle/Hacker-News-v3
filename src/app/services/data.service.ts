@@ -2,9 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BASE_URL } from '../app.constants';
 import { IPost } from '../interfaces/post';
-import { BehaviorSubject, firstValueFrom, forkJoin, Observable, Observer } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { ErrorService } from './error.service';
+import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +21,7 @@ export class DataService {
   postsList: number[];
 
   constructor(
-    private _http: HttpClient,
-    private _errorService: ErrorService
+    private _http: HttpClient
   ) { }
 
   public HNGet(type: string): Observable<Object> {
@@ -114,5 +111,23 @@ export class DataService {
     this.postIDs = [];
     this.nextPostIndex = 0;
     this.morePostsAvailable = false;
+  }
+
+  public sortPosts(value) {
+    let results: IPost[] = [];
+    switch (value) {
+      case 'Sort by time posted':
+        results = this.fetchedPosts.sort((a, b) => (a.time > b.time) ? 1 : -1).reverse()
+        break;
+      case 'Sort by number likes':
+        results = this.fetchedPosts.sort((a, b) => (a.score > b.score) ? 1 : -1).reverse()
+        break;
+      case 'Sort by number of replies':
+        results = this.fetchedPosts.sort((a, b) => (a.descendants > b.descendants) ? 1 : -1).reverse()
+        break;
+      default:
+        break;
+    }
+    this.postsSubject.next(this.fetchedPosts);
   }
 }
