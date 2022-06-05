@@ -1,0 +1,19 @@
+<div class="comment shadow rounded mb-2 p-3">
+  <div class="user-info">
+    <span class="user metadata">
+      <fa-icon [icon]="faUser"></fa-icon>{{ comment?.by }}
+    </span>
+    <span class="time metadata">
+      <fa-icon [icon]="faClock"></fa-icon>
+      <span timeago
+            [date]="comment.time * 1000"
+            *ngIf="comment?.time"></span>
+    </span>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div [innerHTML]="comment.text"></div>
+      <span>{{ getCommentCountText() }}</span>
+    </div>
+  </div>
+</div>

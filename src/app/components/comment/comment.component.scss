@@ -1,0 +1,12 @@
+@import "src/variables.scss";
+
+.metadata {
+  display: inline-block;
+  margin-right: 40px;
+  color: $hn-light-text;
+  font-size: 0.9em;
+  .ng-fa-icon {
+    margin-right: 5px;
+    color: $hn-primary;
+  }
+}
