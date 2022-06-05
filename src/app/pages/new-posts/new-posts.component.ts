@@ -25,8 +25,7 @@ export class NewPostsComponent implements OnInit {
   postsSubscription: Subscription;
   postsLoadingSubject: Subscription;
   isLoading: boolean = true;
-  activePostCount: number = 0;
-  totalPostCount: number = 0;
+
   currentPage: number = 1;
 
   constructor(

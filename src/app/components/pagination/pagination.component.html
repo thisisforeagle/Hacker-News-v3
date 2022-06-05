@@ -9,7 +9,7 @@
   <div class="col text-center">
     <div class="post-count-info">
       <strong>Page {{ currentPage }}</strong><br>
-      <strong>{{ (currentPage * 10) - 9 }}</strong> to <strong>{{ (currentPage * 10) }}</strong> of <strong>{{ totalPostCount }}</strong>
+      <strong>{{ (currentPage * 10) - 9 }}</strong> to <strong>{{ getPageMaxCount() }}</strong> of <strong>{{ totalPostCount }}</strong>
     </div>
   </div>
   <div class="col text-center next-page">

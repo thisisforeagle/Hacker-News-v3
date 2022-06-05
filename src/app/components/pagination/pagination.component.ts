@@ -64,5 +64,14 @@ export class PaginationComponent implements OnInit {
   hasPosts() {
     return this.posts?.length > 0
   }
+  getPageMaxCount() {
+    let count = 0;
+    if ((this.currentPage * 10) > this.totalPostCount) {
+      count = this.totalPostCount
+    } else {
+      count = this.currentPage * 10;
+    }
+    return count;
+  }
 
 }

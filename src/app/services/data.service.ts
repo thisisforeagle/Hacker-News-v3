@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BASE_URL } from '../app.constants';
 import { IPost } from '../interfaces/post';
-import { BehaviorSubject, firstValueFrom, forkJoin, Observable } from 'rxjs';
+import { BehaviorSubject, firstValueFrom, forkJoin, Observable, Observer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ErrorService } from './error.service';
 
@@ -20,13 +20,14 @@ export class DataService {
   nextPostIndex = 0;
   morePostsAvailable: boolean = false;
   currentPage: number = 1;
+  postsList: number[];
 
   constructor(
     private _http: HttpClient,
     private _errorService: ErrorService
   ) { }
 
-  public HNGet(type: string) {
+  public HNGet(type: string): Observable<Object> {
     this.currentPage = 1;
     return this._http
       .get(`${ BASE_URL }${ type }stories.json`);
@@ -37,62 +38,74 @@ export class DataService {
 
     this.resetCounts();
 
-    const get = this.HNGet(type)
-    this.postIDs = await firstValueFrom(get);
-    this.loadPosts();
+    this.HNGet(type)
+      .subscribe(ids => {
+        this.postIDs = ids;
+        this.loadPosts();
+      });
 
     setTimeout(() => {
       this.postsLoadingSubject.next(false);
     }, 750);
 
   }
-  public getPost(id: any): Observable<Object> {
+  public getPost(id: number): Observable<Object> {
     return this._http
       .get(`${ BASE_URL }item/${ id }.json`);
   }
 
-  public loadPosts() {
-    console.log('Loading posts from IDs');
+  public loadPosts(direction?: string) {
 
-    const postsList: number[] = [];
-    this.morePostsAvailable = this.nextPostIndex + 10 <= this.postIDs.length;
+    if (direction === 'next') {
+      this.nextPostIndex += 10
+    } else if (direction === 'previous') {
+      this.nextPostIndex -= 10
+    }
+
+    this.postsList = [];
+    this.fetchedPosts = [];
+
+    this.morePostsAvailable = this.nextPostIndex <= this.postIDs.length;
+
     if (this.morePostsAvailable || this.fetchedPosts.length === 0) {
-      for (let i = this.nextPostIndex; i < this.nextPostIndex + 10; i++) {
-        const nextPost: any = this.getPost(this.postIDs[i]);
-        postsList.push(nextPost);
-        console.log(this.postIDs[i]);
-      }
+      this.getTenPosts()
       this.loading = true;
-      forkJoin(postsList).subscribe(
-        (morePosts: any) => {
-          morePosts.forEach(post => {
-            if (post) {
-              post.image = `https://picsum.photos/200?random&t=${ Math.random() }`
-            }
-          })
-          this.fetchedPosts = [...this.fetchedPosts, ...morePosts];
-          this.loading = false;
-          this.nextPostIndex = this.nextPostIndex + 10;
-          this.postsSubject.next(this.fetchedPosts.slice((this.currentPage - 1) * 10, this.currentPage * 10));
-        },
-        () => {
-          this.loading = false;
-        }
-      );
+      forkJoin(this.postsList)
+        .subscribe(
+          (posts: any) => {
+            posts.forEach(post => {
+              if (post) {
+                post.image = `https://picsum.photos/200?random&t=${ Math.random() }`
+              }
+            })
+            this.fetchedPosts = [...posts];
+            this.loading = false;
+            this.postsSubject.next(this.fetchedPosts);
+          }
+        );
     }
     this.postsLoadingSubject.next(false);
 
   }
 
+  getTenPosts() {
+    for (let i = this.nextPostIndex; i < this.nextPostIndex + 10; i++) {
+      if (this.postIDs[i]) {
+        const nextPost: any = this.getPost(this.postIDs[i]);
+        this.postsList.push(nextPost);
+      }
+    }
+  }
+
   public nextPage() {
     this.postsLoadingSubject.next(true);
     this.currentPage++;
-    this.loadPosts();
+    this.loadPosts('next');
   }
   public previousPage() {
     this.postsLoadingSubject.next(true);
     this.currentPage--;
-    this.loadPosts();
+    this.loadPosts('previous');
   }
 
   public resetCounts() {

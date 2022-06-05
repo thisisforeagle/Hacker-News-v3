@@ -25,8 +25,8 @@ export class TopPostsComponent implements OnInit {
   postsSubscription: Subscription;
   postsLoadingSubject: Subscription;
   isLoading: boolean = true;
-  activePostCount: number = 0;
-  totalPostCount: number = 0;
+
+
   constructor(
     private _dataService: DataService
   ) { }
@@ -39,8 +39,6 @@ export class TopPostsComponent implements OnInit {
           if (posts?.length > 0) {
             this.posts = posts;
             console.log(posts);
-            this.activePostCount = this._dataService.nextPostIndex;
-            this.totalPostCount = this._dataService.postIDs.length;;
           }
         }
       );

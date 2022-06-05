@@ -1,6 +1,7 @@
 @import "src/variables.scss";
 
 #sidebar {
+  width: $hn-sidebar-width;
   height: 100vh;
   position: fixed;
 

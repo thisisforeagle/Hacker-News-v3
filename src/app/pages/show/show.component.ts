@@ -25,8 +25,9 @@ export class ShowComponent implements OnInit {
   postsSubscription: Subscription;
   postsLoadingSubject: Subscription;
   isLoading: boolean = true;
-  activePostCount: number = 0;
-  totalPostCount: number = 0;
+
+  currentPage: number = 1;
+
 
   constructor(
     private _dataService: DataService
@@ -38,10 +39,12 @@ export class ShowComponent implements OnInit {
       .subscribe(
         (posts: IPost[]) => {
           if (posts?.length > 0) {
-            this.posts = posts;
-            console.log(posts);
-            this.activePostCount = this._dataService.nextPostIndex;
-            this.totalPostCount = this._dataService.postIDs.length;;
+            this.posts = [];
+            setTimeout(() => {
+              this.posts = posts;
+              console.log(posts);
+              this.currentPage = this._dataService.currentPage;
+            }, 0);
           }
         }
       );
