@@ -17,13 +17,18 @@ export class AppComponent {
     'Sort by number of replies',
   ]
   title = 'hacker-news-v3';
+  activeURL: string = '';
 
   constructor(
     private router: Router,
     private _dataService: DataService
   ) {
-    router.events.subscribe((val) => {
+    this.watchRouteChanges();
+  }
+  watchRouteChanges() {
+    this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
+        this.activeURL = this.router.url;
         this.isPostPage = this.router.url.indexOf('/post/') > -1
         this.isUserPage = this.router.url.indexOf('/user/') > -1
       }

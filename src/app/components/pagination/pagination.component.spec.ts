@@ -1,17 +1,14 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { compileDeclareComponentFromMetadata } from '@angular/compiler';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { DataService } from 'src/app/services/data.service';
 import { PaginationComponent } from './pagination.component';
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IPost } from 'src/app/interfaces/models';
 
 describe('PaginationComponent', () => {
   let service: DataService;
   let component: PaginationComponent;
   let fixture: ComponentFixture<PaginationComponent>;
-  let httpController: HttpTestingController;
 
   const mockPost: IPost = {
     "image": "http://img.com",
@@ -33,7 +30,6 @@ describe('PaginationComponent', () => {
       declarations: [PaginationComponent],
       imports: [HttpClientTestingModule, FontAwesomeModule],
     }).compileComponents();
-    // httpController = TestBed.inject(HttpTestingController);
     fixture = TestBed.createComponent(PaginationComponent);
     component = fixture.componentInstance;
     service = TestBed.inject(DataService);
@@ -50,7 +46,6 @@ describe('PaginationComponent', () => {
   describe('Previous', () => {
     it('should call service when previous button clicked', () => {
       spyOn(component, 'previousPage').and.callThrough();
-      spyOn(component, 'hasPosts').and.returnValue(true)
       spyOn(service, 'previousPage').and.callThrough();
       component.currentPage = 2;
       service.currentPage = 2;
@@ -89,19 +84,17 @@ describe('PaginationComponent', () => {
 
 
   describe('Next', () => {
-    it('should call service when previous page button clicked', fakeAsync(() => {
+    it('should call service when previous page button clicked', () => {
       spyOn(component, 'nextPage').and.callThrough();
-      spyOn(component, 'hasPosts').and.returnValue(true)
       spyOn(service, 'nextPage').and.callThrough();
 
       let button = fixture.debugElement.nativeElement.querySelector('[data-testid="next-page"]')
       button.click();
       fixture.detectChanges();
-
       expect(component.nextPage).toHaveBeenCalled();
       expect(service.nextPage).toHaveBeenCalled();
       expect(service.currentPage).toBe(2);
-    }));
+    });
 
     it('should call service when previous page method called', () => {
       spyOn(component, 'nextPage').and.callThrough();

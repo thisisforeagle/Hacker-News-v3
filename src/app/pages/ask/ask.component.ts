@@ -28,8 +28,7 @@ export class AskComponent implements OnInit {
   isLoading: boolean = true;
 
   constructor(
-    private _dataService: DataService,
-    private _errorService: ErrorService
+    private _dataService: DataService
   ) { }
 
   async ngOnInit(): Promise<void> {

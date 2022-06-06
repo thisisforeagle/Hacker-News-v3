@@ -1,6 +1,7 @@
 <div class="comment"
      [ngStyle]="{'border-left': getBorderColour()}"
-     [class.is-reply]="isReply">
+     [class.is-reply]="isReply"
+     *ngIf="comment">
   <div class="content-container shadow rounded mb-2 p-2 px-3">
     <div class="user-meta-container">
       <span class="user metadata">
