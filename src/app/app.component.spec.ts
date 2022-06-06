@@ -1,9 +1,11 @@
 // tslint:disable
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { SortComponent } from './components/sort/sort.component';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { ReplaySubject } from 'rxjs';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
@@ -25,7 +27,11 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [
-        AppComponent
+        AppComponent,
+        SidebarComponent,
+        FooterComponent,
+        PaginationComponent,
+        SortComponent
       ],
       providers: [
         { provide: Router, useValue: routerMock }
