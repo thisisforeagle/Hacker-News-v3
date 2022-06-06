@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SidebarComponent } from './sidebar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -8,7 +9,7 @@ describe('SidebarComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, FontAwesomeModule],
       declarations: [SidebarComponent],
     });
     fixture = TestBed.createComponent(SidebarComponent);

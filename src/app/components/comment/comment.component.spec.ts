@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { CommentComponent } from './comment.component';
 
@@ -10,7 +11,7 @@ describe('CommentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, FontAwesomeModule],
       declarations: [CommentComponent]
     }).compileComponents();
     fixture = TestBed.createComponent(CommentComponent);
