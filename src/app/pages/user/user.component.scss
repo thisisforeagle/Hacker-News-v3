@@ -1,5 +1,7 @@
 @import "src/variables.scss";
-
+.page-content {
+  overflow: hidden !important;
+}
 .user-page {
   .user-info-card {
     min-height: 200px;
@@ -7,9 +9,17 @@
     color: $hn-light-text;
     margin-top: 45px;
     border-radius: 10px;
+    position: sticky;
+    top: 10px;
     .username {
       font-size: 2em;
       margin-bottom: 40px;
     }
+  }
+  #submission-tabs {
+    position: sticky;
+    top: 0px;
+    background: white;
+    padding: 10px;
   }
 }

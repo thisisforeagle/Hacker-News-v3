@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { faChevronLeft, faUser, faClock, faThumbsUp, faMessage } from '@fortawesome/free-solid-svg-icons';
+import { ErrorService } from 'src/app/services/error.service';
 
 @Component({
   selector: 'hn-user',
@@ -24,6 +25,7 @@ export class UserComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private _dataService: DataService,
+    private _errorService: ErrorService
   ) {
     this.route.params.subscribe(params => {
       this.id = params["id"]
@@ -53,5 +55,7 @@ export class UserComponent implements OnInit {
       });
     })
   }
-
+  showError() {
+    this._errorService.error('Pagination not enabled on user page yet');
+  }
 }

@@ -21,11 +21,14 @@
         <div class="score">
           <strong>Total karma: </strong> {{ user?.karma }}
         </div>
+        <div class="submissions">
+          <strong>Total submissions: </strong> {{ user?.submitted?.length }}
+        </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-8">
+    <div class="col-sm-12 col-md-8 p-0 shadow rounded">
       <ul class="nav nav-tabs"
-          id="myTab"
+          id="submission-tabs"
           role="tablist">
         <li class="nav-item"
             role="presentation">
@@ -52,20 +55,34 @@
       </ul>
       <div class="tab-content"
            id="myTabContent">
-        <div class="tab-pane fade show active"
+        <div class="tab-pane fade p-2 show active"
              id="posts"
              role="tabpanel"
              aria-labelledby="posts-tab">
           <hn-post class="hn-post-item"
-                   *ngFor="let post of posts"
+                   *ngFor="let post of posts.slice(0, 10)"
                    [post]="post"></hn-post>
+          <div class="row mt-3 text-center"
+               *ngIf="posts.length > 0">
+            <div class="col">
+              <div class="btn btn-primary"
+                   (click)="showError()">Load 10 more</div>
+            </div>
+          </div>
         </div>
-        <div class="tab-pane fade"
+        <div class="tab-pane fade p-2"
              id="comments"
              role="tabpanel"
              aria-labelledby="comments-tab">
-          <hn-comment *ngFor="let comment of comments"
+          <hn-comment *ngFor="let comment of comments.slice(0, 10)"
                       [comment]="comment"></hn-comment>
+          <div class="row mt-3 text-center"
+               *ngIf="comments.length > 0">
+            <div class="col">
+              <div class="btn btn-primary"
+                   (click)="showError()">Load 10 more</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
