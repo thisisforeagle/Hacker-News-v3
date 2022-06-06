@@ -25,7 +25,6 @@ export class UserComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private _dataService: DataService,
-    private _errorService: ErrorService
   ) {
     this.route.params.subscribe(params => {
       this.id = params["id"]
@@ -56,6 +55,6 @@ export class UserComponent implements OnInit {
     })
   }
   showError() {
-    this._errorService.error('Pagination not enabled on user page yet');
+    throw new Error('Pagination not enabled on user page yet');
   }
 }

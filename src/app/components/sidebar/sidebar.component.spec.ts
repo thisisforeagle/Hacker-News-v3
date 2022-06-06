@@ -16,7 +16,7 @@ describe('SidebarComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('can load instance', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 

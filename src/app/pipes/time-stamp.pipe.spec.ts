@@ -9,7 +9,7 @@ describe('TimeStampPipe', () => {
     pipe = TestBed.inject(TimeStampPipe);
   });
 
-  it('can load instance', () => {
+  it('should be created', () => {
     expect(pipe).toBeTruthy();
   });
 

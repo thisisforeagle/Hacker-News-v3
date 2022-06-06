@@ -9,7 +9,7 @@ describe('UrlRootPipe', () => {
     pipe = TestBed.inject(UrlRootPipe);
   });
 
-  it('can load instance', () => {
+  it('should be created', () => {
     expect(pipe).toBeTruthy();
   });
 

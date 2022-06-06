@@ -48,10 +48,12 @@
       <div>
         <p>{{ post?.descendants || 0 }}<br>Comments</p>
         <div class="row">
-          <div class="col share">
+          <div class="col share"
+               (click)="showError()">
             <fa-icon [icon]="faShareNodes"></fa-icon>
           </div>
-          <div class="col favourite">
+          <div class="col favourite"
+               (click)="showError()">
             <fa-icon [icon]="faStar"></fa-icon>
           </div>
         </div>

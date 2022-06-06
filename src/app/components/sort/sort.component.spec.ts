@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms';
 import { SortComponent } from './sort.component';
 
 describe('SortComponent', () => {
@@ -8,6 +8,7 @@ describe('SortComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [FormsModule],
       declarations: [SortComponent]
     }).compileComponents();
     fixture = TestBed.createComponent(SortComponent);
@@ -15,7 +16,7 @@ describe('SortComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

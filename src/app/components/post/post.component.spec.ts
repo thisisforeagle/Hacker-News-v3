@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { PostComponent } from './post.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TimeStampPipe } from '../../pipes/time-stamp.pipe';
+
 describe('PostComponent', () => {
   let component: PostComponent;
   let fixture: ComponentFixture<PostComponent>;
@@ -16,7 +17,7 @@ describe('PostComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('can create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

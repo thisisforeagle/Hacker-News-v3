@@ -38,4 +38,7 @@ export class PostComponent implements OnInit {
     this.router.navigate(['/user', this.post.by]);
   }
 
+  showError() {
+    throw new Error("This feature is not available yet.");
+  }
 }

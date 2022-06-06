@@ -4,6 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { PostPageComponent } from './post-page.component';
+import { SortComponent } from 'src/app/components/sort/sort.component';
 
 describe('PostPageComponent', () => {
   let component: PostPageComponent;
@@ -13,7 +14,7 @@ describe('PostPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientTestingModule, FontAwesomeModule],
-      declarations: [PostPageComponent]
+      declarations: [PostPageComponent, SortComponent]
     }).compileComponents();
     fixture = TestBed.createComponent(PostPageComponent);
     component = fixture.componentInstance;
@@ -21,7 +22,7 @@ describe('PostPageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

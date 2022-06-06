@@ -17,7 +17,6 @@ export class SidebarComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private _errorService: ErrorService
   ) {
     router.events.pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(event => {
@@ -32,6 +31,6 @@ export class SidebarComponent implements OnInit {
     return this.activeURL === page;
   }
   showError(text) {
-    this._errorService.error(text + ' is not available yet!');
+    throw new Error(text + ' is not available yet!');
   }
 }
