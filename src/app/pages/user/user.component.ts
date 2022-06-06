@@ -57,4 +57,10 @@ export class UserComponent implements OnInit {
   showError() {
     throw new Error('Pagination not enabled on user page yet');
   }
+  loadMoreCommentsButton() {
+    return this.comments.length > 0 && this.comments.length > 10;
+  }
+  loadMorePostsButton() {
+    return this.posts.length > 0 && this.posts.length > 10;
+  }
 }
