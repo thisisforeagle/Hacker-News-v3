@@ -1,25 +1,32 @@
 @import "src/variables.scss";
 
 .comment {
-  background: white;
-
-  .user-meta-container {
-    padding-bottom: 5px;
-    border-bottom: 2px solid #e9ecef;
-    margin-bottom: 5px;
-    .user {
-      width: 120px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .metadata {
-      display: inline-block;
-      margin-right: 40px;
-      color: $hn-light-text;
-      font-size: 0.9em;
-      .ng-fa-icon {
-        margin-right: 5px;
-        color: $hn-primary;
+  border-radius: 10px;
+  &.is-reply {
+    padding: 0px !important;
+    margin-left: 20px;
+  }
+  .content-container {
+    background: white;
+    border-radius: 10px;
+    .user-meta-container {
+      padding-bottom: 5px;
+      border-bottom: 2px solid #e9ecef;
+      margin-bottom: 5px;
+      .user {
+        width: 120px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .metadata {
+        display: inline-block;
+        margin-right: 40px;
+        color: $hn-light-text;
+        font-size: 0.9em;
+        .ng-fa-icon {
+          margin-right: 5px;
+          color: $hn-primary;
+        }
       }
     }
   }

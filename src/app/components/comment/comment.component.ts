@@ -68,7 +68,7 @@ export class CommentComponent implements OnInit {
     }
   }
   getBorderColour() {
-    let color = 'transparent';
+    let color = '#226efd';
     if (this.isReply) {
       color = this.commentThreadColours[this.threadDepth]
     }

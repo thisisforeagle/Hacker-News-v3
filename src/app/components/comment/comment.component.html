@@ -1,29 +1,31 @@
-<div class="comment shadow rounded mb-2 p-3"
+<div class="comment"
      [ngStyle]="{'border-left': getBorderColour()}"
      [class.is-reply]="isReply">
-  <div class="user-meta-container">
-    <span class="user metadata">
-      <span *ngIf="!comment.deleted">
-        <fa-icon [icon]="faUser"></fa-icon>{{ comment?.by }}
+  <div class="content-container shadow rounded mb-2 p-2 px-3">
+    <div class="user-meta-container">
+      <span class="user metadata">
+        <span *ngIf="!comment.deleted">
+          <fa-icon [icon]="faUser"></fa-icon>{{ comment?.by }}
+        </span>
+        <span *ngIf="comment.deleted">
+          <fa-icon [icon]="faBan"></fa-icon>Comment deleted
+        </span>
       </span>
-      <span *ngIf="comment.deleted">
-        <fa-icon [icon]="faBan"></fa-icon>Comment deleted
+      <span class="time metadata">
+        <fa-icon [icon]="faClock"></fa-icon>
+        <span timeago
+              [date]="comment.time * 1000"
+              *ngIf="comment?.time"></span>
       </span>
-    </span>
-    <span class="time metadata">
-      <fa-icon [icon]="faClock"></fa-icon>
-      <span timeago
-            [date]="comment.time * 1000"
-            *ngIf="comment?.time"></span>
-    </span>
-    <span class="comments metadata">
-      <fa-icon [icon]="faMessage"></fa-icon>
-      <span>{{ getCommentCountText() }}</span>
-    </span>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div [innerHTML]="comment.text"></div>
+      <span class="comments metadata">
+        <fa-icon [icon]="faMessage"></fa-icon>
+        <span>{{ getCommentCountText() }}</span>
+      </span>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div [innerHTML]="comment.text"></div>
+      </div>
     </div>
   </div>
   <div class="comment-replies">
