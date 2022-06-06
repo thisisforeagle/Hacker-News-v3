@@ -35,7 +35,6 @@ export class PaginationComponent implements OnInit {
             this.posts = [];
             setTimeout(() => {
               this.posts = posts;
-              console.log(posts);
               this.currentPage = this._dataService.currentPage;
               this.activePostCount = this._dataService.nextPostIndex;
               this.totalPostCount = this._dataService.postIDs.length;

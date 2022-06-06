@@ -61,8 +61,6 @@ describe('PaginationComponent', () => {
       service.postsLoadingSubject.subscribe(subject => {
         expect(subject).toBeTrue;
       })
-
-      console.log('After test: ', service.currentPage);
     });
 
     it('should call service when previous method clicked', () => {

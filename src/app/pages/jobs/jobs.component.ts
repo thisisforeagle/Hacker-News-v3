@@ -39,8 +39,6 @@ export class JobsComponent implements OnInit {
         (posts: IPost[]) => {
           if (posts?.length > 0) {
             this.posts = posts;
-            console.log(posts);
-
           }
         }
       );

@@ -8,12 +8,8 @@ describe('SortComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SortComponent ]
-    })
-    .compileComponents();
-  });
-
-  beforeEach(() => {
+      declarations: [SortComponent]
+    }).compileComponents();
     fixture = TestBed.createComponent(SortComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -39,21 +39,17 @@ export class CommentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.comment);
     this.getComments();
   }
   getCommentCountText() {
     let commentCountText = '';
     const commentCount = this.comment?.kids?.length;
-    try {
-      if (commentCount === 1) {
-        commentCountText = commentCount + ' reply';
-      } else {
-        commentCountText = (commentCount || '0') + ' replies';
-      }
-    } catch (error) {
-      console.log('Comment count error');
+    if (commentCount === 1) {
+      commentCountText = commentCount + ' reply';
+    } else {
+      commentCountText = (commentCount || '0') + ' replies';
     }
+
     return commentCountText
   }
   getComments() {

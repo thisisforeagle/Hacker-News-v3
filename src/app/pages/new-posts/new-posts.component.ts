@@ -41,7 +41,6 @@ export class NewPostsComponent implements OnInit {
             this.posts = [];
             setTimeout(() => {
               this.posts = posts;
-              console.log(posts);
               this.currentPage = this._dataService.currentPage;
             }, 0);
           }

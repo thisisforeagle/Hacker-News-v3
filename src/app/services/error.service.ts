@@ -23,9 +23,7 @@ export class ErrorService implements ErrorHandler {
   handleError(error: any) {
     this.logError(error);
     this.error(error);
-
     console.error("An error has occurred: ", error);
-
     // optional: navigate to error page
     //const router = this._injector.get(Router);
     //router.navigate(['error']);

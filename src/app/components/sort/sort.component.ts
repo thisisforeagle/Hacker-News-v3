@@ -20,7 +20,6 @@ export class SortComponent implements OnInit {
   }
 
   sortPosts() {
-    console.log('Sorting');
     this.chosenSort.emit(this.selectedSort);
   }
 

@@ -42,7 +42,6 @@ export class ShowComponent implements OnInit {
             this.posts = [];
             setTimeout(() => {
               this.posts = posts;
-              console.log(posts);
               this.currentPage = this._dataService.currentPage;
             }, 0);
           }

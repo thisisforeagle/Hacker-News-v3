@@ -22,10 +22,7 @@ export class PostComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router
-  ) {
-    console.log(this.router.url);
-
-  }
+  ) { }
   ngOnInit(): void {
   }
 

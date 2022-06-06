@@ -35,7 +35,6 @@ export class AppComponent {
     });
   }
   sortPosts(event) {
-    console.log(event);
     this._dataService.sortPosts(event);
   }
 }

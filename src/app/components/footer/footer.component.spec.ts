@@ -9,11 +9,7 @@ describe('FooterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [FooterComponent]
-    })
-      .compileComponents();
-  });
-
-  beforeEach(() => {
+    }).compileComponents();
     fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

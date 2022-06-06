@@ -57,8 +57,10 @@ export class PostPageComponent implements OnInit {
         this._dataService.getPost(comment).subscribe(comment => {
           this.comments.push(comment);
           if (comment['kids']) {
-            console.log(comment);
+            // comment contains replies
           } else {
+            // comments contains no replies
+            // create empty array for comment count text
             comment['kids'] = []
           }
         });
