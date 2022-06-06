@@ -6,3 +6,10 @@
   justify-content: center;
   align-items: center;
 }
+.ask-page,
+.jobs-page,
+.new-page,
+.show-page,
+.top-page {
+  min-height: 1600px !important;
+}
