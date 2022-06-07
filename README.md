@@ -26,6 +26,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng test --code-coverage` and open index.html file at this location `coverage/index.html` to view current test coverage
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
